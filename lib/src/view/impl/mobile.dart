@@ -212,14 +212,14 @@ class WebViewXState extends State<WebViewX> {
 
     for (var cb in widget.dartCallBacks) {
       originalWebViewController.addJavaScriptChannel(cb.name, onMessageReceived: (msg) => cb.callBack(msg.message));
-    };
+    }
 
+    webViewXController = _createWebViewXController();
 
     webViewXController.connector = originalWebViewController;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {widget.onWebViewCreated!(webViewXController);});
 
     _ignoreAllGestures = widget.ignoreAllGestures;
-    webViewXController = _createWebViewXController();
   }
 
   @override
