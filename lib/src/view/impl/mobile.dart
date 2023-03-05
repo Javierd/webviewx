@@ -204,7 +204,7 @@ class WebViewXState extends State<WebViewX> {
       originalWebViewController.loadHtmlString(HtmlUtils.preprocessSource(
         widget.initialContent,
         jsContent: widget.jsContent,
-        encodeHtml: true,
+        encodeHtml: false,
       ));
     } else {
       originalWebViewController.loadRequest(Uri.parse(widget.initialContent));
