@@ -214,12 +214,11 @@ class WebViewXState extends State<WebViewX> {
       originalWebViewController.addJavaScriptChannel(cb.name, onMessageReceived: (msg) => cb.callBack(msg.message));
     }
 
+    _ignoreAllGestures = widget.ignoreAllGestures;
     webViewXController = _createWebViewXController();
 
     webViewXController.connector = originalWebViewController;
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {widget.onWebViewCreated!(webViewXController);});
-
-    _ignoreAllGestures = widget.ignoreAllGestures;
   }
 
   @override
