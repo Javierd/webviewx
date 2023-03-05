@@ -358,6 +358,10 @@ class WebViewXState extends State<WebViewX> {
       iframeElement.sandbox!.add('allow-scripts');
     }
 
+    if (!widget.webSpecificParams.scrollable) {
+      iframeElement.setAttribute("scrolling", "no");
+    }
+
     final allow = widget.webSpecificParams.additionalAllowOptions;
 
     if (widget.initialMediaPlaybackPolicy ==
